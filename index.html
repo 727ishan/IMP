@@ -328,20 +328,20 @@
     <div class="screen-body-item">
       <div class="app-form">
         <div class="app-form-group">
-          <input class="app-form-control" placeholder="NAME">
+          <input type="text" class="app-form-control" id="frmnme" placeholder="NAME">
         </div>
         <div class="app-form-group">
-          <input class="app-form-control" placeholder="EMAIL">
+          <input type="email" class="app-form-control" id="frmemil" placeholder="EMAIL">
         </div>
         <div class="app-form-group">
-          <input class="app-form-control" placeholder="CONTACT NO">
+          <input class="app-form-control" id="frmcontct" placeholder="CONTACT NO">
         </div>
         <div class="app-form-group message">
-          <input class="app-form-control" placeholder="MESSAGE">
+          <input type="text" class="app-form-control" id="frmtxt" placeholder="MESSAGE">
         </div>
         <div class="app-form-group buttons">
           <button class="app-form-button">CANCEL</button>
-          <button class="app-form-button">SEND</button>
+          <button onclick="sendMail()" class="app-form-button">SEND</button>
         </div>
       </div>
     </div>
