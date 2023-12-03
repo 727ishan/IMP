@@ -242,7 +242,7 @@ document.querySelector('.menu-heading').addEventListener('mouseenter', function 
             dataType: "json",
             success: function (data) 
             {
-                console.log(data);
+                // console.log(data);
 
                 if(data.status=='SUCCESS') 
                 {
@@ -259,7 +259,9 @@ document.querySelector('.menu-heading').addEventListener('mouseenter', function 
             },
             error: function (error) 
             {
-                console.log(`Error ${error}`);
+                // console.log(`Error ${error}`);
+
+                alert('Something went wrong, please try again after some time !');
             }
         });
     }
