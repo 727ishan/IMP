@@ -172,7 +172,7 @@
         else
         {
             var phoneno = /^\d{10}$/;
-            if(!(contactno.match(phoneno))
+            if(!(document.getElementById("frmcontct").value.match(phoneno))
             {
                 alert('please enter valid contact no !'); 
                 document.getElementById("frmcontct").focus();
