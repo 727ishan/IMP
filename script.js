@@ -237,7 +237,7 @@ document.querySelector('.menu-heading').addEventListener('mouseenter', function 
                 contactno: contactno,
                 email: email,
                 message: message,
-                bodytext: 'hello brother',
+                bodytext: '',
             },
             dataType: "json",
             success: function (data) 
