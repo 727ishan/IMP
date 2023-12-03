@@ -87,20 +87,20 @@
     <div class="screen-body-item">
       <div class="app-form">
         <div class="app-form-group">
-          <input class="app-form-control" id="frmnme" placeholder="NAME">
+          <input type="text" class="app-form-control" id="frmnme" placeholder="NAME">
         </div>
         <div class="app-form-group">
-          <input class="app-form-control" placeholder="EMAIL">
+          <input type="email" class="app-form-control" id="frmemil" placeholder="EMAIL">
         </div>
         <div class="app-form-group">
-          <input class="app-form-control" placeholder="CONTACT NO">
+          <input class="app-form-control" id="frmcontct" placeholder="CONTACT NO">
         </div>
         <div class="app-form-group message">
-          <input class="app-form-control" placeholder="MESSAGE">
+          <input type="text" class="app-form-control" id="frmtxt" placeholder="MESSAGE">
         </div>
         <div class="app-form-group buttons">
           <button class="app-form-button">CANCEL</button>
-          <button ononclick="sendMail()" class="app-form-button">SEND</button>
+          <button onclick="sendMail()" class="app-form-button">SEND</button>
         </div>
       </div>
     </div>
@@ -134,6 +134,34 @@
     function sendMail()
     {
         var name=document.getElementById("frmnme").value;
+        var email=document.getElementById("frmemil").value;
+        var contactno=document.getElementById("frmcontct").value;
+        var message=document.getElementById("frmtxt").value;
+
+        if(name=='')
+        {
+            alert('please enter your name !'); 
+            return false;
+        }
+        
+        if(email=='')
+        {
+            alert('please enter your email !'); 
+            return false;
+        }
+        
+        if(contactno=='')
+        {
+            alert('please enter your contact no !'); 
+            return false;
+        }
+        
+        if(message=='')
+        {
+            alert('please enter your message !'); 
+            return false;
+        }
+        
         console.log(name);
     }
     
