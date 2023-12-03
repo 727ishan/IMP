@@ -87,7 +87,7 @@
     <div class="screen-body-item">
       <div class="app-form">
         <div class="app-form-group">
-          <input class="app-form-control" placeholder="NAME">
+          <input class="app-form-control" id="frmnme" placeholder="NAME">
         </div>
         <div class="app-form-group">
           <input class="app-form-control" placeholder="EMAIL">
@@ -100,7 +100,7 @@
         </div>
         <div class="app-form-group buttons">
           <button class="app-form-button">CANCEL</button>
-          <button class="app-form-button">SEND</button>
+          <button ononclick="sendMail()" class="app-form-button">SEND</button>
         </div>
       </div>
     </div>
@@ -129,6 +129,15 @@
 <!-- script link.....................................................................-->
 <script src="script.js"></script>
 
+
+<script>
+    function sendMail()
+    {
+        var name=document.getElementById("frmnme").value;
+        console.log(name);
+    }
+    
+</script>
  
 </body>
 </html>
