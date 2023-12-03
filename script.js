@@ -243,6 +243,19 @@ document.querySelector('.menu-heading').addEventListener('mouseenter', function 
             success: function (data) 
             {
                 console.log(data);
+
+                if(data.status=='SUCCESS') 
+                {
+                    alert('Thank you for your information !');
+                    
+                    document.getElementById("frmnme").value='';
+                    document.getElementById("frmemil").value='';
+                    document.getElementById("frmcontct").value='';
+                    document.getElementById("frmtxt").value='';
+                }
+                else {
+                        alert(data.remark);
+                }
             },
             error: function (error) 
             {
