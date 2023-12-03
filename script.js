@@ -172,9 +172,6 @@ document.querySelector('.menu-heading').addEventListener('mouseenter', function 
 
 //   CONTACT------------------------------------
 
-
-
-<script>
     function sendMail()
     {
         var name=document.getElementById("frmnme").value;
@@ -253,5 +250,4 @@ document.querySelector('.menu-heading').addEventListener('mouseenter', function 
         });
     }
     
-</script>
 
