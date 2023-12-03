@@ -141,24 +141,49 @@
         if(name=='')
         {
             alert('please enter your name !'); 
+            document.getElementById("frmnme").focus();
             return false;
         }
         
         if(email=='')
         {
             alert('please enter your email !'); 
+            document.getElementById("frmemil").focus();
             return false;
+        }
+        else
+        {
+            const pattern = /^[^\s@]+@[^\s@]+\.[a-zA-Z]{2,}$/;
+            ;
+            if (!pattern.test(email)) 
+            {
+                alert('Please enter a valid email address.');
+                document.getElementById("frmemil").focus();
+                return false;
+            }
         }
         
         if(contactno=='')
         {
             alert('please enter your contact no !'); 
+            document.getElementById("frmcontct").focus();
             return false;
+        }
+        else
+        {
+            var phoneno = /^\d{10}$/;
+            if(!(contactno.match(phoneno))
+            {
+                alert('please enter valid contact no !'); 
+                document.getElementById("frmcontct").focus();
+                return false;
+            }
         }
         
         if(message=='')
         {
             alert('please enter your message !'); 
+            document.getElementById("frmtxt").focus();
             return false;
         }
         
