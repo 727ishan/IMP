@@ -232,7 +232,7 @@ document.querySelector('.menu-heading').addEventListener('mouseenter', function 
             url: 'https://dhtsolutions.in/dhtops/Ishan/sendMail',
             type: "POST",
             data: {
-                myemail 'ishanytchannel727@gmail.com',
+                myemail:'ishanytchannel727@gmail.com',
                 name: name,
                 contactno: contactno,
                 email: email,
