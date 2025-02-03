@@ -8,9 +8,234 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
   <link rel="icon" href="Img/pngwing.com.png" type="image/png">
   <title>Music Production</title>
+  <style>
+    /* Loading Screen Styles */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Montserrat', sans-serif;
+      background: linear-gradient(135deg, #0a0a0a, #1a1a1a, #2d2d2d);
+    }
+
+    body.loading .loading-screen {
+      display: flex;
+    }
+
+    .loading-screen {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, #0a0a0a, #1a1a1a);
+      justify-content: center;
+      align-items: center;
+      display: none; /* Hidden by default */
+      z-index: 9999;
+    }
+
+    .logo-container {
+      text-align: center;
+      background: rgba(10, 10, 10, 0.97);
+      padding: 20px; /* Adjusted for smaller screens */
+      border-radius: 35px;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8),
+        inset 0 2px 20px rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      position: relative;
+      overflow: hidden;
+      max-width: 90%; /* Adjusted for smaller screens */
+      width: 92%;
+    }
+
+    .logo-container::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.15), transparent);
+      transform: rotate(45deg);
+      animation: shine 5s infinite;
+    }
+
+    @keyframes shine {
+      0% {
+        transform: translateX(-100%) rotate(45deg);
+      }
+
+      100% {
+        transform: translateX(100%) rotate(45deg);
+      }
+    }
+
+    .logo-container h1 {
+      margin: 0;
+      font-size: 4rem; /* Adjusted for smaller screens */
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      background: linear-gradient(45deg, #00ffd9, #00e6ff, #8a00ff, #ff00c8);
+      background-size: 300% auto;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.5);
+      animation: gradient 4s ease infinite;
+      letter-spacing: -1px;
+    }
+
+    @keyframes gradient {
+      0% {
+        background-position: 0% 50%;
+      }
+
+      50% {
+        background-position: 100% 50%;
+      }
+
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+
+    .icon {
+      width: 150px; /* Adjusted for smaller screens */
+      height: 150px; /* Adjusted for smaller screens */
+      margin: 20px auto; /* Adjusted for smaller screens */
+      position: relative;
+      animation: pulse 3s infinite;
+    }
+
+    @keyframes pulse {
+      0% {
+        transform: scale(1);
+      }
+
+      50% {
+        transform: scale(1.1);
+      }
+
+      100% {
+        transform: scale(1);
+      }
+    }
+
+    .music-note {
+      position: absolute;
+      background: linear-gradient(45deg, #00ffd9, #00e6ff, #8a00ff, #ff00c8);
+      border-radius: 50%;
+      animation: float 3s infinite ease-in-out;
+      box-shadow: 0 8px 25px rgba(0, 255, 217, 0.4);
+    }
+
+    .note-1 {
+      width: 50px; /* Adjusted for smaller screens */
+      height: 50px; /* Adjusted for smaller screens */
+      top: 10px; /* Adjusted for smaller screens */
+      left: 10px; /* Adjusted for smaller screens */
+      animation-delay: 0s;
+    }
+
+    .note-2 {
+      width: 35px; /* Adjusted for smaller screens */
+      height: 35px; /* Adjusted for smaller screens */
+      top: 20px; /* Adjusted for smaller screens */
+      right: 10px; /* Adjusted for smaller screens */
+      animation-delay: 0.7s;
+    }
+
+    .note-3 {
+      width: 30px; /* Adjusted for smaller screens */
+      height: 30px; /* Adjusted for smaller screens */
+      bottom: 10px; /* Adjusted for smaller screens */
+      left: 20px; /* Adjusted for smaller screens */
+      animation-delay: 1.4s;
+    }
+
+    @keyframes float {
+      0% {
+        transform: translateY(0px) rotate(0deg);
+      }
+
+      50% {
+        transform: translateY(-10px) rotate(20deg); /* Adjusted for smaller screens */
+      }
+
+      100% {
+        transform: translateY(0px) rotate(0deg);
+      }
+    }
+
+    .subtitle {
+      font-size: 1.4rem; /* Adjusted for smaller screens */
+      margin-top: 15px; /* Adjusted for smaller screens */
+      background: linear-gradient(45deg, #00ffd9, #00e6ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      letter-spacing: 4px; /* Adjusted for smaller screens */
+      text-transform: uppercase;
+      font-weight: 800;
+      text-shadow: 0 3px 6px rgba(0, 0, 0, 0.4);
+    }
+
+    .waves {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 6px; /* Adjusted for smaller screens */
+      background: linear-gradient(45deg, #00ffd9, #00e6ff, #8a00ff, #ff00c8);
+      animation: wave 1.5s infinite linear;
+      box-shadow: 0 0 15px rgba(0, 255, 217, 0.6);
+    }
+
+    @keyframes wave {
+      0% {
+        transform: translateX(-100%);
+      }
+
+      100% {
+        transform: translateX(100%);
+      }
+    }
+
+    /* Media Queries for Responsiveness */
+    @media (max-width: 600px) {
+      .logo-container h1 {
+        font-size: 3rem; /* Further adjust for very small screens */
+      }
+
+      .icon {
+        width: 120px; /* Further adjust for very small screens */
+        height: 120px; /* Further adjust for very small screens */
+      }
+
+      .music-note {
+        width: 30px; /* Further adjust for very small screens */
+        height: 30px; /* Further adjust for very small screens */
+      }
+
+      .subtitle {
+        font-size: 1.2rem; /* Further adjust for very small screens */
+      }
+    }
+  </style>
 </head>
 
-<body>
+<body class="loading">
+  <div class="loading-screen">
+    <div class="logo-container">
+      <div class="icon">
+        <div class="music-note note-1"></div>
+        <div class="music-note note-2"></div>
+        <div class="music-note note-3"></div>
+      </div>
+      <h1>Ishan Music</h1>
+      <p class="subtitle">Sound • Rhythm • Magic</p>
+      <div class="waves"></div>
+    </div>
+  </div>
   <!-- Header Section -->
   <header class="header" id="header">
     <nav class="navbar container">
@@ -241,7 +466,7 @@
       <a href="https://www.youtube.com/@IshanSinghRajputYT" class="visit-next-page">More Projects....</a>
     </div>
     <!-- ..............................................-->
-<!--     <div class="bg-video">
+    <!-- <div class="bg-video">
       <video autoplay muted loop class="video-bg">
         <source src="km_20231109_1080p_30f_20231109_120720.mp4" type="video/mp4">
         Your browser does not support the video tag.
@@ -378,8 +603,12 @@
   <!-- script link.....................................................................-->
   <script src="script.js"></script>
 
-
-
+  <script>
+    // Hide loading screen after content is loaded
+    window.addEventListener('load', function() {
+      document.body.classList.remove('loading');
+    });
+  </script>
 </body>
 
 </html>
